@@ -23,7 +23,7 @@ const _Card = css`
     bottom: 2rem;
   }
 
-  .edge {
+  > .edge {
     position: absolute;
     top: .5rem;
     left: .25rem;
@@ -31,7 +31,7 @@ const _Card = css`
     line-height: 4rem;
   }
 
-  .center {
+  > .center {
     position: absolute;
     font-size: 1.5rem;
     line-height: 1.5rem;
@@ -41,7 +41,6 @@ const _Card = css`
     color: #fff;
     font-weight: bold;
   }
-
 `
 
 export default {
@@ -71,6 +70,7 @@ export default {
     computed: {
         className() {
             return cx({
+                card: true,
                 [_Card]: true,
                 selected: this.selected,
                 clickable: this.clickable,

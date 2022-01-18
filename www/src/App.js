@@ -6,7 +6,7 @@ const _App = css`
   min-height: 100vh;
   position: relative;
 
-  .head {
+  > .head {
     position: absolute;
     left: 0;
     right: 0;
@@ -14,7 +14,7 @@ const _App = css`
     text-align: right;
     padding: .25rem;
 
-    .restart {
+    > .restart {
       font-size: 2rem;
       line-height: 2rem;
       cursor: pointer;
@@ -22,7 +22,7 @@ const _App = css`
     }
   }
 
-  .result {
+  > .result {
     margin-top: 12vh;
     position: absolute;
     left: 0;
@@ -37,27 +37,36 @@ const _App = css`
   }
 
 
-  .desk {
+  > .desk {
     position: absolute;
     left: 0;
     right: 0;
     top: calc(50vh - 128px - 1rem);
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+
     justify-content: center;
     align-items: center;
+
+    // gap: .5rem;
+    > .card:not(:first-child) {
+      margin-top: .5rem;
+    }
   }
 
-  .hand {
+  > .hand {
     padding: .25rem;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    gap: .25rem;
     justify-content: center;
+
+    // gap: .25rem;
+    > .card:not(:first-child) {
+      margin-left: .25rem;
+    }
   }
 `
 
