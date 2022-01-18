@@ -37,13 +37,17 @@ const _Start = css`
     }
   }
 
-  > .button-3 {
-    margin: 2rem auto 0;
+  .button-group {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > button:not(:first-child) {
+      margin-top: .75rem;
+    }
   }
 
-  > .button-5 {
-    margin: 1rem auto 0;
-  }
 `
 
 export default {
@@ -55,8 +59,10 @@ export default {
       <div class="title">
         <span>石头剪刀布</span>
       </div>
-      <Button class="button-3" @click="handleClickPlayGame(GAME_TYPE.THREE)">3️⃣ 三局两胜</Button>
-      <Button class="button-5" @click="handleClickPlayGame(GAME_TYPE.FIVE)">5️⃣ 五局三胜</Button>
+      <div class="button-group">
+        <Button @click="handleClickPlayGame(GAME_TYPE.FIVE)">5️⃣ 五局三胜</Button>
+        <Button @click="handleClickPlayGame(GAME_TYPE.THREE)">3️⃣ 三局两胜</Button>
+      </div>
       </div>
     `,
     computed: {

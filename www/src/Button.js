@@ -2,11 +2,13 @@ import { css } from './modules.js'
 
 const _Button = css`
   box-sizing: border-box;
-  display: block;
   background-color: #fff;
   border: 1px solid #111;
   border-radius: 4px;
   font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: .5rem;
+  user-select: none;
   cursor: pointer;
   transition-property: transform;
   transition-duration: 200ms;
