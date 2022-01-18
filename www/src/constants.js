@@ -11,3 +11,28 @@ export const RPS = {
     PAPER: 'PAPER',
     SCISSORS: 'SCISSORS',
 }
+
+export const RPS_LIST = [RPS.ROCK, RPS.SCISSORS, RPS.PAPER]
+
+export const GAME_TYPE = {
+    THREE: 'THREE',
+    FIVE: 'FIVE',
+}
+
+export const RESULT_TYPE = {
+    WIN: 'WIN',
+    LOST: 'LOST',
+    DRAW: 'DRAW',
+}
+
+export const WINNING_PROBABILITY = {
+    HIGH: 'HIGH',
+    NORMAL: 'NORMAL',
+    LOW: 'LOW',
+}
+
+export const PAGE_TYPE = {
+    START: 'START',
+    GAMING: 'GAMING',
+    SETTING: 'SETTING',
+}

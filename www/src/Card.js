@@ -45,7 +45,7 @@ const _Card = css`
 
 export default {
     template: `
-      <div @click="$emit('click')" :class="className">
+      <div @click.stop="$emit('click')" :class="className">
       <span class="edge">{{ edge }}</span>
       <span class="center">{{ center }}</span>
       </div>
