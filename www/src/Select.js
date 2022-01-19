@@ -6,6 +6,8 @@ const _Select = css`
   border: 1px solid #111;
   border-radius: 4px;
   font-size: 1rem;
+  line-height: 1rem;
+  padding: .125rem .25rem;
 `
 
 export default {

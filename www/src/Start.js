@@ -1,6 +1,7 @@
 import { css } from './modules.js'
-import { GAME_TYPE } from './constants.js'
+import { GAME_TYPE, PAGE_TYPE } from './constants.js'
 import Button from './Button.js'
+import { gotoRouterPage } from './router.js'
 
 const _Start = css`
   box-sizing: border-box;
@@ -73,7 +74,7 @@ export default {
             this.$emit('play', gameType)
         },
         handleClickSetting() {
-            this.$emit('setting')
+            gotoRouterPage(PAGE_TYPE.SETTING)
         }
     },
     components: { Button, },

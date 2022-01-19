@@ -2,17 +2,16 @@ import { GAME_TYPE, PAGE_TYPE, WINNING_PROBABILITY } from './constants.js'
 import Start from './Start.js'
 import Setting from './Setting.js'
 import Gaming from './Gaming.js'
+import { getRoutePage, gotoRouterPage } from './router.js'
 
 export default {
     template: `
       <div>
       <Start v-if="page === PAGE_TYPE.START"
-             @play="handlePlay"
-             @setting="handleSetting"/>
-      <Gaming v-if="page === PAGE_TYPE.GAMING" :gameType="type" @back="handleBack"/>
+             @play="handlePlay"/>
+      <Gaming v-if="page === PAGE_TYPE.GAMING" :gameType="type"/>
       <Setting v-if="page === PAGE_TYPE.SETTING"
                :setting="setting"
-               @back="handleBack"
                @change="handleSettingChange"/>
       </div>
     `,
@@ -28,16 +27,16 @@ export default {
     computed: {
         PAGE_TYPE: () => PAGE_TYPE,
     },
+    mounted() {
+        window.addEventListener('popstate', () => {
+            this.page = getRoutePage()
+        })
+        this.page = getRoutePage()
+    },
     methods: {
         handlePlay(gameType) {
-            this.page = PAGE_TYPE.GAMING
             this.type = gameType
-        },
-        handleBack() {
-            this.page = PAGE_TYPE.START
-        },
-        handleSetting() {
-            this.page = PAGE_TYPE.SETTING
+            gotoRouterPage(PAGE_TYPE.GAMING)
         },
         handleSettingChange(ev) {
             this.setting = ev

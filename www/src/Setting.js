@@ -1,6 +1,7 @@
 import { css } from './modules.js'
-import { WINNING_PROBABILITY } from './constants.js'
+import { PAGE_TYPE, WINNING_PROBABILITY } from './constants.js'
 import Select from './Select.js'
+import { gotoRouterPage } from './router.js'
 
 const _Setting = css`
   min-height: 100vh;
@@ -26,7 +27,7 @@ const _Setting = css`
   }
 
   .settings {
-    padding: 2rem .5rem;
+    padding: 20vh .5rem;
     user-select: none;
     font-size: 1rem;
     text-align: center;
@@ -63,7 +64,7 @@ export default {
     },
     methods: {
         handleClickBack() {
-            this.$emit('back')
+            gotoRouterPage(PAGE_TYPE.START)
         },
         handleWinningProbabilityChange(ev) {
             this.$emit('change', {

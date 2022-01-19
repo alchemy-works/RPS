@@ -1,7 +1,8 @@
 import { css } from './modules.js'
 import Card from './Card.js'
-import { RESULT_TYPE, RPS_LIST } from './constants.js'
+import { PAGE_TYPE, RESULT_TYPE, RPS_LIST } from './constants.js'
 import { getGameResultText, getRoundResult, getRoundResultText } from './rps.js'
+import { gotoRouterPage } from './router.js'
 
 const _Gaming = css`
   min-height: 100vh;
@@ -18,7 +19,7 @@ const _Gaming = css`
     align-items: center;
 
     > .head-left {
-      
+
       > .icon-button:not(:first-child) {
         margin-left: .25rem;
       }
@@ -223,7 +224,7 @@ export default {
         },
         handleClickBack() {
             this.reset()
-            this.$emit('back')
+            gotoRouterPage(PAGE_TYPE.START)
         },
         hostPlay() {
             return new Promise((resolve) => {
