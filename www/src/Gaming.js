@@ -2,7 +2,7 @@ import { css } from './modules.js'
 import Card from './Card.js'
 import { PAGE_TYPE, RESULT_TYPE, RPS_LIST } from './constants.js'
 import { getGameResultText, getRoundResult, getRoundResultText } from './rps.js'
-import { gotoRouterPage } from './router.js'
+import { gotoRoutePage } from './router.js'
 
 const _Gaming = css`
   min-height: 100vh;
@@ -103,7 +103,7 @@ export default {
           <span class="count">{{ win }}</span>
           <span>输</span>
           <span class="count">{{ lose }}</span>
-          <span>平局</span>
+          <span>平</span>
           <span class="count">{{ draw }}</span>
         </span>
       </div>
@@ -224,7 +224,7 @@ export default {
         },
         handleClickBack() {
             this.reset()
-            gotoRouterPage(PAGE_TYPE.START)
+            gotoRoutePage(PAGE_TYPE.START)
         },
         hostPlay() {
             return new Promise((resolve) => {

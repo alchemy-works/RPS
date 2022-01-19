@@ -1,21 +1,24 @@
 import { PAGE_TYPE } from './constants.js'
 
-export function getRoutePage() {
+function toHash(page = '') {
+    return '#/' + page.toLowerCase()
+}
+
+export function getCurrentRoutePage() {
     const url = new URL(location.href)
     switch (url.hash) {
-        case '#/' + PAGE_TYPE.GAMING.toLowerCase():
+        case toHash(PAGE_TYPE.GAMING):
             return PAGE_TYPE.GAMING
-        case  '#/' + PAGE_TYPE.SETTING.toLowerCase():
+        case  toHash(PAGE_TYPE.SETTING):
             return PAGE_TYPE.SETTING
-        case  '#/' + PAGE_TYPE.START.toLowerCase():
+        case toHash(PAGE_TYPE.START):
         default:
             return PAGE_TYPE.START
     }
 }
 
-export function gotoRouterPage(page = '') {
+export function gotoRoutePage(page = '') {
     const url = new URL(location.href)
-    url.hash = '#/' + page.toLowerCase()
+    url.hash = toHash(page)
     location.href = url.toString()
-
 }

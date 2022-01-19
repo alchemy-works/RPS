@@ -2,7 +2,7 @@ import { GAME_TYPE, PAGE_TYPE, WINNING_PROBABILITY } from './constants.js'
 import Start from './Start.js'
 import Setting from './Setting.js'
 import Gaming from './Gaming.js'
-import { getRoutePage, gotoRouterPage } from './router.js'
+import { getCurrentRoutePage, gotoRoutePage } from './router.js'
 
 export default {
     template: `
@@ -29,14 +29,14 @@ export default {
     },
     mounted() {
         window.addEventListener('popstate', () => {
-            this.page = getRoutePage()
+            this.page = getCurrentRoutePage()
         })
-        this.page = getRoutePage()
+        this.page = getCurrentRoutePage()
     },
     methods: {
         handlePlay(gameType) {
             this.type = gameType
-            gotoRouterPage(PAGE_TYPE.GAMING)
+            gotoRoutePage(PAGE_TYPE.GAMING)
         },
         handleSettingChange(ev) {
             this.setting = ev
